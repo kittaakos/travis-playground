@@ -2,3 +2,7 @@
 
 # travis-playground
 Playground for setting up a Travis CI build with TS + Webpack + Mocha + Electron + Monaco
+
+
+### travis-ci
+Builds are triggered via pushes on the `master` and/or with PRs.
