@@ -5,7 +5,8 @@ node_js:
 branches:
   only: 
     - master
-script:
-  - npm test
-  - npm run build
-  - npm run webpack
+env:
+  - BUILD_SCRIPT=.build-tsc.sh
+  - BUILD_SCRIPT=.build-webpack.sh
+  - BUILD_SCRIPT=.build-test.sh
+script: chmod a+x $BUILD_SCRIPT && ./$BUILD_SCRIPT
