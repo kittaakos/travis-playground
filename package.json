@@ -6,10 +6,10 @@
   "scripts": {
     "lint": "./node_modules/.bin/tslint -c ./tslint.json --project ./tsconfig.json",
     "clean": "./node_modules/.bin/rimraf lib",
-    "build": "./node_modules/.bin/tsc && npm run lint",
-    "webpack": "cp ./index.html ./lib && ./node_modules/.bin/webpack",
+    "build": "npm run clean && ./node_modules/.bin/tsc && npm run lint",
+    "webpack": "npm run clean && ./node_modules/.bin/webpack && cp ./index.html lib/index.html",
     "clean:build": "npm run clean && npm run build",
-    "start": "cp ./index.html ./lib && ./node_modules/.bin/webpack-dev-server --open",
+    "start": "./node_modules/.bin/webpack-dev-server --open",
     "test": "./node_modules/.bin/mocha"
   },
   "repository": {
