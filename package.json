@@ -2,12 +2,14 @@
   "name": "travis-playground",
   "version": "1.0.0",
   "description": "Playground for setting up a Travis CI build with TS + Webpack + Mocha + Electron + Monaco",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "lint": "./node_modules/.bin/tslint -c ./tslint.json --project ./tsconfig.json",
     "clean": "./node_modules/.bin/rimraf lib",
     "build": "./node_modules/.bin/tsc && npm run lint",
+    "webpack": "cp ./index.html ./lib && ./node_modules/.bin/webpack",
     "clean:build": "npm run clean && npm run build",
+    "start": "cp ./index.html ./lib && ./node_modules/.bin/webpack-dev-server --open",
     "test": "./node_modules/.bin/mocha"
   },
   "repository": {
@@ -24,10 +26,19 @@
     "@types/chai": "^3.4.35",
     "@types/mocha": "^2.2.40",
     "chai": "^3.5.0",
+    "copy-webpack-plugin": "^4.0.1",
     "mocha": "^3.2.0",
     "rimraf": "^2.6.1",
+    "source-map-loader": "^0.2.0",
+    "ts-loader": "^2.0.3",
     "ts-node": "^3.0.2",
     "tslint": "^4.5.1",
-    "typescript": "^2.2.1"
+    "typescript": "^2.2.1",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.8.3",
+    "monaco-editor-core": "^0.8.2"
   }
 }
