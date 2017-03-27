@@ -15,7 +15,7 @@ describe("Foo", () => {
 
     describe("#append(string)", () => {
         it("should append to the input argument and return with it", () => {
-            expect(testMe.append("bar")).to.be.equal("bar-foo");
+            expect(testMe.append("bar")).to.be.not.equal("bar-foo");
         });
     });
 
